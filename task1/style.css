@@ -1,0 +1,230 @@
+/* ---------- Tokens ---------- */
+:root {
+  --green: #0F6B5F;
+  --orange: #F2A93B;
+  --ink: #16302B;
+  --field: #F4F7F5;
+  --line: #E6EFEC;
+  --white: #fff;
+
+  --radius-card: 1.25rem;
+  --radius-field: 0.625rem;
+  --radius-pill: 50rem;
+  --shadow: 0 0.75rem 2rem rgba(22, 48, 43, 0.12);
+
+  /* Bootstrap hooks */
+  --bs-body-font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-body-color: var(--ink);
+  --bs-body-font-size: 0.8125rem;
+  --bs-primary: var(--green);
+  --bs-primary-rgb: 15, 107, 95;
+  --bs-focus-ring-color: rgba(15, 107, 95, 0.25);
+}
+
+body {
+  background: var(--line);
+  color: var(--ink);
+  font-family: var(--bs-body-font-family);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+}
+
+/* ---------- Card ---------- */
+.ticket {
+  border: 0;
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.ticket-header {
+  background: var(--green);
+  color: var(--white);
+  border: 0;
+  padding: 1.5rem 1.5rem;
+}
+
+.ticket-title {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.ticket-body {
+  padding: 2rem 1.5rem;
+}
+
+/* ---------- Labels & legends ---------- */
+.form-label,
+legend.form-label {
+  font-weight: 600;
+  font-size: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+fieldset legend { float: none; width: auto; padding: 0; }
+
+/* ---------- Text fields, dates, select ---------- */
+.form-control,
+.form-select,
+.input-group-text {
+  background-color: var(--field);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-field);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  box-shadow: none;
+}
+
+.form-control::placeholder { color: rgba(22, 48, 43, 0.5); }
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--white);
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.2);
+}
+
+/* Floating labels: small grey label above the value */
+.form-floating > label {
+  font-size: 0.7rem;
+  color: rgba(22, 48, 43, 0.6);
+}
+
+.form-floating > .form-control {
+  padding-top: 1.5rem;
+  padding-bottom: 0.4rem;
+}
+
+/* Phone prefix */
+.input-group > .input-group-text.prefix {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+  font-weight: 700;
+  border-radius: var(--radius-field) 0 0 var(--radius-field);
+}
+
+.input-group > .form-control {
+  border-radius: 0 var(--radius-field) var(--radius-field) 0;
+}
+
+/* ---------- Trip toggle (radio pill group) ---------- */
+.trip-toggle {
+  border: 1px solid var(--green);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.btn-outline-trip {
+  border: 0;
+  border-radius: var(--radius-pill) !important;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.45rem 1.1rem;
+}
+
+.btn-check:checked + .btn-outline-trip {
+  background: var(--green);
+  color: var(--white);
+}
+
+.btn-check:focus-visible + .btn-outline-trip {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* ---------- Radios, checkbox, switch ---------- */
+.form-check-input {
+  background-color: var(--field);
+  border-color: rgba(22, 48, 43, 0.35);
+}
+
+.form-check-input:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+.form-check-input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.25);
+}
+
+.form-check-label { font-size: 0.75rem; }
+
+
+.btn-find,
+.btn-clear {
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.7rem 1.75rem;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-find {
+  background: var(--orange);
+  border: 2px solid var(--orange);
+  color: var(--ink);
+}
+
+.btn-find:hover,
+.btn-find:focus-visible {
+  background: #e49a28;
+  border-color: #e49a28;
+  color: var(--ink);
+}
+
+.btn-clear {
+  background: var(--white);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+
+.btn-clear:hover,
+.btn-clear:focus-visible {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.btn-find:focus-visible,
+.btn-clear:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+}
+
+.result {
+  color: var(--green);
+  font-weight: 600;
+  text-align: end;
+}
+
+
+@media (max-width: 767.98px) {
+  .page { padding: 1rem 0.75rem; }
+  .ticket-header { padding: 1rem 1.1rem; }
+  .ticket-title { font-size: 1rem; }
+  .ticket-body { padding: 1.25rem 1.1rem; }
+  .trip-toggle { display: flex; width: 100%; }
+  .trip-toggle .btn { flex: 1 1 0; }
+  .result { text-align: center; }
+}
+
+
+
+label {
+  display: block;
+  font:
+    1rem "Fira Sans",
+    sans-serif;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+}
