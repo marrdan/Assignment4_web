@@ -31,7 +31,7 @@ body { background: #F4F7F5; color: #16302B; }
 
 fieldset legend { float: none; width: auto; padding: 0; }
 
-/* Errors only after the user has changed a field (or tried to submit) */
+
 .form-control:user-invalid,
 .form-select:user-invalid {
   border-color: var(--danger);

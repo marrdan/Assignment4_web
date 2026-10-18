@@ -57,7 +57,7 @@ body {
   padding: 2rem 1.5rem;
 }
 
-/* ---------- Labels & legends ---------- */
+
 .form-label,
 legend.form-label {
   font-weight: 600;
@@ -67,7 +67,7 @@ legend.form-label {
 
 fieldset legend { float: none; width: auto; padding: 0; }
 
-/* ---------- Text fields, dates, select ---------- */
+
 .form-control,
 .form-select,
 .input-group-text {
@@ -88,7 +88,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
   box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.2);
 }
 
-/* Floating labels: small grey label above the value */
+
 .form-floating > label {
   font-size: 0.7rem;
   color: rgba(22, 48, 43, 0.6);
@@ -99,7 +99,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
   padding-bottom: 0.4rem;
 }
 
-/* Phone prefix */
+
 .input-group > .input-group-text.prefix {
   background: var(--green);
   border-color: var(--green);
@@ -112,7 +112,9 @@ fieldset legend { float: none; width: auto; padding: 0; }
   border-radius: 0 var(--radius-field) var(--radius-field) 0;
 }
 
-/* ---------- Trip toggle (radio pill group) ---------- */
+
+
+
 .trip-toggle {
   border: 1px solid var(--green);
   border-radius: var(--radius-pill);
@@ -127,6 +129,10 @@ fieldset legend { float: none; width: auto; padding: 0; }
   font-weight: 600;
   font-size: 0.75rem;
   padding: 0.45rem 1.1rem;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+
 }
 
 .btn-check:checked + .btn-outline-trip {
