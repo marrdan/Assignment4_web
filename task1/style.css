@@ -11,14 +11,13 @@
   --radius-field: 0.625rem;
   --radius-pill: 50rem;
   --shadow: 0 0.75rem 2rem rgba(22, 48, 43, 0.12);
+  --field-h: 2.5rem;            /* one height for every input, select and the +7 block */
 
-  /* Bootstrap hooks */
   --bs-body-font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --bs-body-color: var(--ink);
   --bs-body-font-size: 0.8125rem;
   --bs-primary: var(--green);
   --bs-primary-rgb: 15, 107, 95;
-  --bs-focus-ring-color: rgba(15, 107, 95, 0.25);
 }
 
 body {
@@ -27,12 +26,9 @@ body {
   font-family: var(--bs-body-font-family);
 }
 
-.page {
-  min-height: 100vh;
-  padding: 2.5rem 1rem;
-}
+.page { min-height: 100vh; padding: 2.5rem 1rem; }
 
-/* ---------- Card ---------- */
+
 .ticket {
   border: 0;
   border-radius: var(--radius-card);
@@ -45,21 +41,15 @@ body {
   background: var(--green);
   color: var(--white);
   border: 0;
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem;
 }
 
-.ticket-title {
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
+.ticket-title { font-weight: 700; letter-spacing: 0.01em; }
 
-.ticket-body {
-  padding: 2rem 1.5rem;
-}
+.ticket-body { padding: 2rem 1.5rem; }
 
-
-.form-label,
-legend.form-label {
+/* label and legends */
+.form-label {
   font-weight: 600;
   font-size: 0.75rem;
   margin-bottom: 0.4rem;
@@ -67,10 +57,11 @@ legend.form-label {
 
 fieldset legend { float: none; width: auto; padding: 0; }
 
-
+/*  Fields: same look and same height */
 .form-control,
 .form-select,
 .input-group-text {
+  height: var(--field-h);
   background-color: var(--field);
   border: 1px solid var(--line);
   border-radius: var(--radius-field);
@@ -79,7 +70,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
   box-shadow: none;
 }
 
-.form-control::placeholder { color: rgba(22, 48, 43, 0.5); }
+.form-control::placeholder { color: rgba(22, 48, 43, 0.45); }
 
 .form-control:focus,
 .form-select:focus {
@@ -88,19 +79,38 @@ fieldset legend { float: none; width: auto; padding: 0; }
   box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.2);
 }
 
-
-.form-floating > label {
-  font-size: 0.7rem;
-  color: rgba(22, 48, 43, 0.6);
-}
-
+/*  Floating labels: small label always on top */
 .form-floating > .form-control {
-  padding-top: 1.5rem;
-  padding-bottom: 0.4rem;
+  height: 3.1rem;
+  min-height: 3.1rem;
+  padding: 1.35rem 0.75rem 0.3rem;
+  line-height: 1.2;
 }
 
+.form-floating > label,
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  padding: 0.5rem 0.75rem 0;
+  font-size: 0.65rem;
+  color: rgba(22, 48, 43, 0.6);
+  opacity: 1;
+  transform: none;
+}
 
-.input-group > .input-group-text.prefix {
+.form-floating > label::after { display: none; }
+
+
+#from::placeholder,
+#to::placeholder { color: var(--ink); opacity: 1; }
+
+/*  Phone: +7 block and input on one line, one height */
+.phone-group { flex-wrap: nowrap; align-items: stretch; }
+
+.phone-group > .prefix {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.9rem;
   background: var(--green);
   border-color: var(--green);
   color: var(--white);
@@ -108,13 +118,13 @@ fieldset legend { float: none; width: auto; padding: 0; }
   border-radius: var(--radius-field) 0 0 var(--radius-field);
 }
 
-.input-group > .form-control {
+.phone-group > .form-control {
+  margin: 0;
   border-radius: 0 var(--radius-field) var(--radius-field) 0;
 }
 
 
-
-
+/* ---------- Trip toggle (radio pill) ---------- */
 .trip-toggle {
   border: 1px solid var(--green);
   border-radius: var(--radius-pill);
@@ -124,21 +134,14 @@ fieldset legend { float: none; width: auto; padding: 0; }
 
 .btn-outline-trip {
   border: 0;
-  border-radius: var(--radius-pill) !important;
+  border-radius: var(--radius-pill);
   color: var(--ink);
   font-weight: 600;
   font-size: 0.75rem;
   padding: 0.45rem 1.1rem;
-  width: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
-
 }
 
-.btn-check:checked + .btn-outline-trip {
-  background: var(--green);
-  color: var(--white);
-}
+.btn-check:checked + .btn-outline-trip { background: var(--green); color: var(--white); }
 
 .btn-check:focus-visible + .btn-outline-trip {
   outline: 3px solid var(--orange);
@@ -163,7 +166,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
 
 .form-check-label { font-size: 0.75rem; }
 
-
+/* ---------- Buttons ---------- */
 .btn-find,
 .btn-clear {
   border-radius: var(--radius-pill);
@@ -180,11 +183,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
 }
 
 .btn-find:hover,
-.btn-find:focus-visible {
-  background: #e49a28;
-  border-color: #e49a28;
-  color: var(--ink);
-}
+.btn-find:focus-visible { background: #e49a28; border-color: #e49a28; color: var(--ink); }
 
 .btn-clear {
   background: var(--white);
@@ -193,24 +192,12 @@ fieldset legend { float: none; width: auto; padding: 0; }
 }
 
 .btn-clear:hover,
-.btn-clear:focus-visible {
-  background: var(--ink);
-  color: var(--white);
-}
+.btn-clear:focus-visible { background: var(--ink); color: var(--white); }
 
 .btn-find:focus-visible,
-.btn-clear:focus-visible {
-  outline: 3px solid var(--green);
-  outline-offset: 2px;
-}
+.btn-clear:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
 
-.result {
-  color: var(--green);
-  font-weight: 600;
-  text-align: end;
-}
-
-
+/* ---------- Phone ---------- */
 @media (max-width: 767.98px) {
   .page { padding: 1rem 0.75rem; }
   .ticket-header { padding: 1rem 1.1rem; }
@@ -218,19 +205,25 @@ fieldset legend { float: none; width: auto; padding: 0; }
   .ticket-body { padding: 1.25rem 1.1rem; }
   .trip-toggle { display: flex; width: 100%; }
   .trip-toggle .btn { flex: 1 1 0; }
-  .result { text-align: center; }
 }
 
 
 
-label {
-  display: block;
-  font:
-    1rem "Fira Sans",
-    sans-serif;
-}
 
-input,
-label {
-  margin: 0.4rem 0;
+
+.prefix{
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+   border-bottom-right-radius: 0;
+
+  background-color: #0F6B5F ;
+}
+  
+
+.input-group.has-validation{
+  border-radius: 10px;
+
+
 }
