@@ -1,5 +1,6 @@
-/* ---------- Tokens ---------- */
+
 :root {
+  
   --green: #0F6B5F;
   --orange: #F2A93B;
   --ink: #16302B;
@@ -11,7 +12,7 @@
   --radius-field: 0.625rem;
   --radius-pill: 50rem;
   --shadow: 0 0.75rem 2rem rgba(22, 48, 43, 0.12);
-  --field-h: 2.5rem;            /* one height for every input, select and the +7 block */
+  --field-h: 2.5rem;          
 
   --bs-body-font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
   --bs-body-color: var(--ink);
@@ -57,7 +58,7 @@ body {
 
 fieldset legend { float: none; width: auto; padding: 0; }
 
-/*  Fields: same look and same height */
+
 .form-control,
 .form-select,
 .input-group-text {
@@ -79,7 +80,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
   box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.2);
 }
 
-/*  Floating labels: small label always on top */
+
 .form-floating > .form-control {
   height: 3.1rem;
   min-height: 3.1rem;
@@ -100,10 +101,8 @@ fieldset legend { float: none; width: auto; padding: 0; }
 .form-floating > label::after { display: none; }
 
 
-#from::placeholder,
-#to::placeholder { color: var(--ink); opacity: 1; }
 
-/*  Phone: +7 block and input on one line, one height */
+
 .phone-group { flex-wrap: nowrap; align-items: stretch; }
 
 .phone-group > .prefix {
@@ -124,7 +123,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
 }
 
 
-/* ---------- Trip toggle (radio pill) ---------- */
+
 .trip-toggle {
   border: 1px solid var(--green);
   border-radius: var(--radius-pill);
@@ -148,7 +147,7 @@ fieldset legend { float: none; width: auto; padding: 0; }
   outline-offset: 2px;
 }
 
-/* ---------- Radios, checkbox, switch ---------- */
+
 .form-check-input {
   background-color: var(--field);
   border-color: rgba(22, 48, 43, 0.35);
@@ -197,7 +196,8 @@ fieldset legend { float: none; width: auto; padding: 0; }
 .btn-find:focus-visible,
 .btn-clear:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
 
-/* ---------- Phone ---------- */
+
+
 @media (max-width: 767.98px) {
   .page { padding: 1rem 0.75rem; }
   .ticket-header { padding: 1rem 1.1rem; }
